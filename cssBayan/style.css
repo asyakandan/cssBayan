@@ -100,3 +100,21 @@ img {
 	transition: all 1.5s ease;
 	overflow: hidden;
 }
+
+@media (hover: hover) {
+	.accordion:hover .accordion__title {
+		color: #fff;
+	}
+	.accordion:hover .accordion__item:hover .accordion__icon {
+		transform: rotate(135deg);
+	}
+	.accordion:hover .accordion__icon {
+		opacity: 1;
+	}
+	.accordion:hover .accordion__item:hover .accordion__item-content {
+		padding: 1.3em 0;
+		max-height: 50em;
+		transform: scale(1);
+		opacity: 1;
+	}
+}
