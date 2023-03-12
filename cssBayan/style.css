@@ -32,14 +32,20 @@ img {
 	transition: all 0.5s linear;
 }
 
+.container {
+	margin: 0 auto;
+	max-width: 70vw;
+}
+
 .accordion__header {
 	display: flex;
 	align-items: center;
 	column-gap: 1em;
 }
 
-.accordion__header img {
-	max-height: 2.5em;
+.accordion__item {
+	display: block;
+	cursor: pointer;
 }
 
 .accordion__title {
@@ -48,53 +54,18 @@ img {
 	justify-content: space-between;
 	margin: 0;
 	padding: 0.5em 0;
+	color: #ffdb29;
 	border-top: 0.02em solid #a9a0a0;
 	border-bottom: 0.02em solid #a9a0a0;
 	transition: all 0.3s ease;
-}
-
-.accordion__item {
-	display: block;
-	cursor: pointer;
 }
 
 .accordion__item:active > .accordion__title h3 {
 	color: #ffdb29;
 }
 
-.container {
-	margin: 0 auto;
-	max-width: 70vw;
-}
-
-.accordion input:checked ~ .accordion__item-content {
-	padding: 1.3em 0;
-	max-height: 50em;
-	transform: scale(1);
-	opacity: 1;
-}
-
-.accordion__item input:checked ~ .accordion__title .accordion__icon {
-	transform: rotate(135deg);
-}
-
-.accordion .accordion__title {
-	color: #ffdb29;
-}
-
 .accordion input:checked ~ .accordion__title {
 	color: #fff;
-}
-
-.accordion__item-content,
-.accordion input ~ .accordion__item-content {
-	padding: 0;
-	max-height: 0;
-	text-align: center;
-	transform: scale(0.5);
-	opacity: 0;
-	transition: all 1.5s ease;
-	overflow: hidden;
 }
 
 .accordion__icon {
@@ -106,4 +77,26 @@ img {
 	transform: rotate(-45deg);
 	opacity: 0;
 	transition: transform 1s ease, opacity 0.5s ease;
+}
+
+.accordion__item input:checked ~ .accordion__title .accordion__icon {
+	transform: rotate(135deg);
+}
+
+.accordion input:checked ~ .accordion__item-content {
+	padding: 1.3em 0;
+	max-height: 50em;
+	transform: scale(1);
+	opacity: 1;
+}
+
+.accordion__item-content,
+.accordion input ~ .accordion__item-content {
+	padding: 0;
+	max-height: 0;
+	text-align: center;
+	transform: scale(0.5);
+	opacity: 0;
+	transition: all 1.5s ease;
+	overflow: hidden;
 }
