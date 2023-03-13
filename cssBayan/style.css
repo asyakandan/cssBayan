@@ -1,0 +1,120 @@
+:root {
+	font-size: calc(0.5em + 1vw);
+}
+
+*,
+::before,
+::after {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 1.5em 0;
+	min-height: 100vh;
+	font-family: sans-serif;
+	line-height: 1.5;
+	color: #fff;
+	background: #000;
+}
+
+input {
+	display: none;
+	visibility: hidden;
+}
+
+h3 {
+	margin: 0;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	transition: all 0.5s linear;
+}
+
+.container {
+	margin: 0 auto;
+	max-width: 70vw;
+}
+
+.accordion__header {
+	display: flex;
+	align-items: center;
+	column-gap: 1em;
+}
+
+.accordion__item {
+	display: block;
+	cursor: pointer;
+}
+
+.accordion__title {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: 0;
+	padding: 0.5em 0;
+	color: #ffdb29;
+	border-top: 0.02em solid #a9a0a0;
+	border-bottom: 0.02em solid #a9a0a0;
+	transition: all 0.3s ease;
+}
+
+.accordion__item:active > .accordion__title h3 {
+	color: #ffdb29;
+}
+
+.accordion input:checked ~ .accordion__title {
+	color: #fff;
+}
+
+.accordion__icon {
+	margin-right: 0.3em;
+	width: 0.7em;
+	height: 0.7em;
+	border-left: 0.2em solid #fff;
+	border-bottom: 0.2em solid #fff;
+	transform: rotate(-45deg);
+	opacity: 0;
+	transition: transform 1s ease, opacity 0.5s ease;
+}
+
+.accordion__item input:checked ~ .accordion__title .accordion__icon {
+	transform: rotate(135deg);
+}
+
+.accordion input:checked ~ .accordion__item-content {
+	padding: 1.3em 0;
+	max-height: 50em;
+	transform: scale(1);
+	opacity: 1;
+}
+
+.accordion__item-content,
+.accordion input ~ .accordion__item-content {
+	padding: 0;
+	max-height: 0;
+	text-align: center;
+	transform: scale(0.5);
+	opacity: 0;
+	transition: all 1.5s ease;
+	overflow: hidden;
+}
+
+@media (hover: hover) {
+	.accordion:hover .accordion__title {
+		color: #fff;
+	}
+	.accordion:hover .accordion__item:hover .accordion__icon {
+		transform: rotate(135deg);
+	}
+	.accordion:hover .accordion__icon {
+		opacity: 1;
+	}
+	.accordion:hover .accordion__item:hover .accordion__item-content {
+		padding: 1.3em 0;
+		max-height: 50em;
+		transform: scale(1);
+		opacity: 1;
+	}
+}
